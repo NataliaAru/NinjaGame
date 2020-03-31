@@ -9,8 +9,8 @@ public class NinjaStar : MonoBehaviour
         
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
-        rb.useGravity = false;
-        rb.freezeRotation = true;
+        //rb.useGravity = false;
+        //rb.freezeRotation = true;
         rb.velocity = new Vector3(0,0,0);
     }
 }
