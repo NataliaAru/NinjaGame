@@ -6,6 +6,7 @@ public class NinjaStar : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
+        
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
         rb.useGravity = false;
