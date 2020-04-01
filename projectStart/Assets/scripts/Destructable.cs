@@ -5,10 +5,13 @@ using UnityEngine;
 public class Destructable : MonoBehaviour
 {
     public GameObject shatteredversion;
+    public HashSet<string> destroyers;
     // Start is called before the first frame update
     void Start()
     {
-        
+        destroyers = new HashSet<string>();
+        destroyers.Add("sphere");
+        destroyers.Add("ninjaStar");
     }
 
     // Update is called once per frame
@@ -19,13 +22,14 @@ public class Destructable : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("sphere"))
+        if (destroyers.Contains(collision.gameObject.tag))
             ShatterObject();
     }
 
     void ShatterObject()
     {
-        Instantiate(shatteredversion, transform.position, transform.rotation);
+        Instantiate(shatteredversion, transform.position, transform.rotation); // if you scale the original object, the shattered object
+                                                                               // the shattered object does not scale with it - Marc
         Destroy(gameObject);
     }
 }
