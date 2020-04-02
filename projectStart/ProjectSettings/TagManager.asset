@@ -6,6 +6,12 @@ TagManager:
   tags:
   - sphere
   - ninjaStar
+  - ninjaStarTarget
+  - breakableItems
+  - monster
+  - monster1
+  - monster2
+  - monster3
   layers:
   - Default
   - TransparentFX

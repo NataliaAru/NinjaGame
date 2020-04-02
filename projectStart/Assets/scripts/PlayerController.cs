@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 4;
-    public int wave = 1;
     public Camera cam;
     public NavMeshAgent agent;
     GameManager manager;
@@ -23,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+       /* if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -31,6 +30,6 @@ public class PlayerController : MonoBehaviour
             {
                 agent.SetDestination(hit.point);
             }
-        }
+        }*/
     }
 }

@@ -28,8 +28,11 @@ public class Destructable : MonoBehaviour
 
     void ShatterObject()
     {
-        Instantiate(shatteredversion, transform.position, transform.rotation); // if you scale the original object, the shattered object
-                                                                               // the shattered object does not scale with it - Marc
+        if (shatteredversion != null)
+        {
+            Instantiate(shatteredversion, transform.position, transform.rotation); // if you scale the original object, the shattered object
+                                                                                   // the shattered object does not scale with it - Marc
+        }
         Destroy(gameObject);
     }
 }

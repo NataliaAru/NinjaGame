@@ -27,23 +27,26 @@ public class MonsterController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        if(manager.GetAttackWave() != null)
+    {
+        if (manager.GetAttackWave() >= wave && manager.GetLevel().Equals("fightMonsters"))
         {
             if(Vector3.Distance(transform.position, player.transform.position) < range)
             {
-                Debug.Log("stopped");
+                //Debug.Log("stopped");
                 agent.SetDestination(transform.position);
             }
             else
             {
-                Debug.Log("chasing");
+                //Debug.Log("chasing");
                 agent.SetDestination(player.transform.position);
             }
-                            
+
             //follow the Player!!
-        }
+        }        
         
-        
+    }
+    void onDestroy()
+    {
+        manager.IncrementDead();
     }
 }
