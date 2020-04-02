@@ -6,6 +6,9 @@ public class Destructable : MonoBehaviour
 {
     public GameObject shatteredversion;
     public HashSet<string> destroyers;
+    bool destroyed;
+
+    public int scalar; // Cracked instances have a different scale than the normal ones, put the ratio here.
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,8 @@ public class Destructable : MonoBehaviour
         destroyers.Add("sphere");
         destroyers.Add("ninjaStar");
         destroyers.Add("sword");
+        
+        destroyed = false;
     }
 
     // Update is called once per frame
@@ -23,16 +28,19 @@ public class Destructable : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (destroyers.Contains(collision.gameObject.tag))
+        if (destroyers.Contains(collision.gameObject.tag) && !destroyed)
+        {
             ShatterObject();
+            destroyed = true;
+        }
     }
 
     void ShatterObject()
     {
         if (shatteredversion != null)
         {
-            Instantiate(shatteredversion, transform.position, transform.rotation); // if you scale the original object, the shattered object
-                                                                                   // the shattered object does not scale with it - Marc
+            GameObject instance = Instantiate(shatteredversion, transform.position, transform.rotation);
+            instance.transform.localScale = transform.localScale * scalar; 
         }
         Destroy(gameObject);
     }
