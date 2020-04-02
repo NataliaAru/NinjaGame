@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4000011311866092}
   - component: {fileID: 33000013523883360}
   - component: {fileID: 23000013730734082}
+  - component: {fileID: 170596798401268668}
   m_Layer: 0
   m_Name: Wooden Crate
   m_TagString: Untagged
@@ -79,3 +80,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &170596798401268668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011275823026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aa429067297a044eb622f4f9c0829b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shatteredversion: {fileID: 1168907351885854, guid: b3dc6d5c1ab8158418b2f82094975753,
+    type: 3}
+  scalar: 100
