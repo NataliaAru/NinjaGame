@@ -7,26 +7,22 @@ public class ThrowNinjaStarVR : MonoBehaviour
 {
     public GameObject starObject;
     public GameObject starSpawn;
+    public Hand hand;
 
-    private bool holding = false;
     private GameObject star;
-    private Vector3 throwStart;
 
     // Update is called once per frame
     void Update()
     {
-
-        if(Player.instance.rightHand.grabPinchAction.state && !holding)
+        if(hand.GetGrabStarting() == GrabTypes.Pinch)
         {
-            Player.instance.rightHand.TriggerHapticPulse(2000); // doesn't work yet
-            holding = true;
+            hand.TriggerHapticPulse(2000); // doesn't work yet
             SpawnStar();
         } 
-        else if (!Player.instance.rightHand.grabPinchAction.state && holding) 
+        else if (hand.GetGrabEnding() == GrabTypes.Pinch) 
         {
             Throw();
-            Player.instance.rightHand.TriggerHapticPulse(2000); // doesn't work yet
-            holding = false;
+            hand.TriggerHapticPulse(2000); // doesn't work yet
         }
     }
 
@@ -39,8 +35,6 @@ public class ThrowNinjaStarVR : MonoBehaviour
     {
         star = Instantiate(starObject, starSpawn.transform.position, starSpawn.transform.rotation) as GameObject;
 
-        Player.instance.rightHand.AttachObject(star, GrabTypes.Pinch);
-
-        throwStart = Input.mousePosition;
+        hand.AttachObject(star, GrabTypes.Pinch);
     }
 }

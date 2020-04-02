@@ -12,6 +12,7 @@ public class Destructable : MonoBehaviour
         destroyers = new HashSet<string>();
         destroyers.Add("sphere");
         destroyers.Add("ninjaStar");
+        destroyers.Add("sword");
     }
 
     // Update is called once per frame
