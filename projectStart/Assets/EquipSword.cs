@@ -14,25 +14,25 @@ public class EquipSword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hand.GetGrabStarting() == GrabTypes.Pinch)
+        if (hand.GetGrabStarting() != GrabTypes.None)
         {
             hand.TriggerHapticPulse(2000); // doesn't work yet
-            SpawnSword();
+            Equip();
         }
-        else if (hand.GetGrabEnding() == GrabTypes.Pinch)
+        else if (hand.GetGrabEnding() != GrabTypes.None)
         {
-            DestroySword();
+            Uneqiup();
             hand.TriggerHapticPulse(2000); // doesn't work yet
         }
     }
 
-    void DestroySword()
+    private void Uneqiup()
     {
         Destroy(sword);
         sword = null;
     }
 
-    void SpawnSword()
+    private void Equip()
     {
         sword = Instantiate(swordObject, swordSpawn.GetComponent<Transform>()) as GameObject;
 

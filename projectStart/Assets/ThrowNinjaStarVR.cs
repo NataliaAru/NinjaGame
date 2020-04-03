@@ -26,12 +26,12 @@ public class ThrowNinjaStarVR : MonoBehaviour
         }
     }
 
-    void Throw()
+    private void Throw()
     {
         star = null;
     }
 
-    void SpawnStar()
+    private void SpawnStar()
     {
         star = Instantiate(starObject, starSpawn.transform.position, starSpawn.transform.rotation) as GameObject;
 

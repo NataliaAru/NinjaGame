@@ -12,6 +12,9 @@ TagManager:
   - monster1
   - monster2
   - monster3
+  - projectile
+  - FxTemporaire
+  - sword
   layers:
   - Default
   - TransparentFX
